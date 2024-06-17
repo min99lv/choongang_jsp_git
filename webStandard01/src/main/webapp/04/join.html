@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ul {
+	list-style: none;
+} /* 리스트 정렬 아이콘을 정할 수 있다 */
+li {
+	margin: 10px;
+} /* 리스트의 간격  */
+label {
+	width: 120px;
+	text-align: left;
+	float: left; /* 왼쪽부터 120px을 잡아줌 */
+} /*  */
+</style>
+</head>
+<body>
+	<h1>회원가입을 환영합니다</h1>
+	<form action="">
+		<ul>
+			<!-- size : 입력필드의 너비 = width 와 같음 -->
+			<li><label>아이디:</label> <input type="text" id=user_id   size="20"
+				minlength="4" maxlength="15"> <small style="color: red;">
+					4~15자리 이내의 영문과 숫자</small></li>
+			<li><label>이메일:</label> <input type="text" id=user_email></li>
+			<li><label>비밀번호:</label> <input type="password" id=user_pw></li>
+			<li><label>비밀번호 확인:</label> <input type="password" id=user_pw></li>
+			<li><label>회원가입</label> <input type="submit" value="회원가입"></li>
+		</ul>
+	</form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	width: 500px;
+	height: 500px;
+	border: 2px double black;
+	margin-bottom: 20px;
+}
+
+.bg1 { /* 한줄에 다 적기 가능 */
+	background: url("images/bg4.jpg") no-repeat left top;
+}
+
+.bg2 {
+	background: url("images/bg4.jpg") no-repeat left top;
+	background-size: 200px 150px; /* 가로 세로 */
+}
+
+.bg3 {
+	background: url("images/bg4.jpg") no-repeat left top;
+	background-size: 50% 30%; /* 반응형 */
+}
+
+.bg4 {
+	background: url("images/bg4.jpg") no-repeat left top;
+	background-size: contain; /* 비율을 유지해서 알아서 최대한 맞춰줌 */
+}
+
+.bg5 {
+	background: url("images/bg4.jpg") no-repeat left top;
+	background-size: cover; /* 박스를 꽉 채운다 비율 유지 (잘라짐)*/
+}
+
+.bg6 {
+	background: url("images/bg4.jpg") no-repeat left top;
+	background-size: 100% 100%; /* 박스를 꽉 채운다 비율 유지 X */
+}
+</style>
+
+</head>
+<body>
+	<div class="bg1"></div>
+	<div class="bg2"></div>
+	<div class="bg3"></div>
+	<div class="bg4"></div>
+	<div class="bg5"></div>
+	<div class="bg6"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* body 대신 * 사용가능 ( * = 모든것 이라는 의미...)  */
+body { 
+	background-color: #FFE08C; /* body 배경 전체 컬러 */
+}
+form fieldset {
+	margin-bottom:25px;  /* 신청과목과 메일링 사이의 간격 */
+}
+form legend {
+	font-size: 20px; /* 글자 사이즈 */
+	font-weight: 600; /* 글자 두께  */
+}
+/*   class = . / id = #  */
+form label.reg{
+	font-size: 12px; /* 라벨의 글자 사이즈 조절*/
+	color: #390;
+	font-weight: bold; /*  폰트 두껍게 */
+	width: 110px; 
+	float: left; /* 왼쪽 부터 적용  */
+	text-align:right; /* 글자를 어디서에 붙게 할지 */
+	text-align: center;/* 라벨의 텍스트 가운데 정렬 */
+	margin-right: 10px; /* 라벨의 오른쪽 마진 조절 */
+	 }
+
+</style>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+		<legend>신청 과목</legend> <!--  필드 셋에 글자를 주고 싶을때 사용하는 태그-->
+		<p>이 달에 신청할 과목을 선택하세요(1과목만 가능)</p>
+		<label class ="reg"><input type="radio" name="subject" value="speaking"> 회화</label>
+		<label><input type="radio" name="subject" value="grammar">문법</label>
+		<label><input type="radio" name="subject" value="writing">작문</label>
+						<input type="radio" name="subject" value="sing">노래 
+						<!-- 라벨이 없어도 가능하지만 디자인을 위해서 사용  -->
+		<!--  radio 버튼 1개만 선택 가능 -->
+		</fieldset>
+		<fieldset>
+		<legend>메일링</legend>
+		<p>메일로 받고 싶은 뉴스 주제를 선택해 주세요(복수 선택 가능)</p>
+		<label><input type="checkbox" name="mailing1" value="news">해외 단신</label>
+		<label><input type="checkbox" name="mailing2" value="dialog">5분 회화</label>
+		<label><input type="checkbox" name="mailing3" value="pops">모닝팝스</label>
+		<!--  checkbox  복수 선택 가능 -->
+		</fieldset>
+	</form>
+</body>
+</html>
