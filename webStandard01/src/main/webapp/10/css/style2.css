@@ -1,0 +1,64 @@
+body {
+	font: 14px "맑은 고딕";
+}
+
+.container {
+	position: absolute;
+	width: 960px;
+	margin: 0 auto;
+	background-color: #fff; /* 흰색 */
+	border: 1px solid #E7E7E7 /* 회색 */
+}
+
+header {
+	position: relative; /* 일반적인 흐름에 따르면서 추가로 위치를 이동시키고 싶을때 */
+	height: 280px; 
+	background-image: url("../images/bg.png");
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+header h1 {
+	position: absolute; /* 일반적인 흐름을 제거 조상 요소를 기준으로 위치를 정함 */
+	right: 20px;
+	bottom: 70px;
+	font-size: 3em;
+	color: #FFC;
+	text-shadow: 5px 5px 6px #000;
+}
+
+header h2 {
+	position: absolute;
+	right: 20px;
+	bottom: 30px;
+	font-size: 1.8em;
+	color: #FF0;
+	text-shadow: 0px 1px 1px #000;
+}
+
+.navi {
+	position: relative;
+	background: #271717;
+	margin-top: -15px;
+	width: 960px;
+	height: 60px;
+}
+.navi ul{
+	list-style: none;
+	height: 40px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.navi ul li{
+	display: inline;
+	float: left;
+	font-size: 15px;
+	margin-right: 10px;
+}
+.navi a, .navi a:visited {
+	padding: 10px 5px 5px 35px;
+	display: block;
+	color: #fff;
+	width: 150px;
+	text-decoration: none;
+}

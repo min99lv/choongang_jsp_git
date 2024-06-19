@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var boolean1 = true; 	// true
+	var boolean2 = false; // false
+	var boolean3 = 1; 			// 1
+	var boolean4 = 0; 			// 0 /* 넣는 순간 숫자 처리 = int */
+	var boolean5 = NaN; 	// NaN /* 넣는 순간 문자열 처리 */
+	var boolean6 = "aa"; 	//String  /* 넣는 순간 문자열 처리 */
+
+	// 화면에는 표시되지 않으나 개발자가 내부구조를 보기위해서 사용
+	console.log("boolean1->" + boolean1); 	// true 
+	console.log("boolean2->" + boolean2); 	// false
+	console.log("boolean3->" + boolean3); 	// 1
+	console.log("boolean4->" + boolean4); 	// 0
+	console.log("boolean5->" + boolean5); 	// NaN /* Not a number = 값이 없다 */
+	console.log("boolean6->" + boolean6); 	// aa /* 문자열이라도  어떠한 값이 있다고 처리 */
+	console.log("!boolean5->" + !boolean5); // true /* !(값이 없으면 거짓)  */
+	console.log("!boolean6->" + !boolean6); // false /* !(값이 있으면 참) */
+</script>
+</head>
+<body>
+<h1>boolean01</h1>
+
+
+</body>
+</html>

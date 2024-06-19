@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ul {
+		list-style: none;
+	}
+	
+	li {
+		width: 120px; /* 너비 */
+		display: inline; /* 한 줄 정렬 */
+		float: left; /* 왼쪽으로 정렬 */
+		margin: 10px; /* 요소간의 여백 */
+	}
+	
+	li a {
+		padding: 5px 20px; /* 상하 5px, 좌우 20px */
+		font-size: 14px; 
+		color: blue;
+		text-decoration: none;/* 밑줄 제거 */
+	}
+	/* href속성이 존재하는 태그  */
+	a[href]{ /* a태그 안에 href를 가진 속성만 적용  */
+	background: yellow;
+	}
+	
+</style>
+</head>
+<body>
+	<ul>
+		<li><a>메인 메뉴 : </a></li>
+		<li><a href="#">메뉴 1</a></li>
+		<li><a href="#">메뉴 2</a></li>
+		<li><a href="#">메뉴 3</a></li>
+		<li><a href="#">메뉴 4</a></li>
+	</ul>
+</body>
+</html>

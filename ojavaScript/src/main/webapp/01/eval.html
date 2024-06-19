@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 디폴트 값  */
+	var str = prompt("원하는 계산은?", "256*654");
+	/* 숫자 * 숫자  * 가 들어있으면 문자열로 인식 */
+	document.write(str + "<br>");
+	/* eval() = 연산해서 뿌려줌 */
+	document.write(eval(str) + "<br>");
+	var a = 7, b = 6;
+	var k = "a+b";
+	var k2 = eval(k);
+	document.write(k + "<br>");
+	document.write(k2);
+</script>
+</head>
+<body>
+	<h1>eval</h1>
+</body>
+</html>

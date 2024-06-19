@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// document는 바디 영역으로 들어간다. 
+	// 정수형	
+	document.write("<center>");	// 가운데 영역
+	document.write("<h3> [정수형] </h3>");
+	document.write("<h4>");
+	document.write("<hr>10진수===>"+10); //10
+	document.write("<br>&nbsp 8진수===>"+0o12); //10  --> 1*8^1 + 2*8^0 = 8 + 2
+	document.write("<br>16진수===>"+0xc); //12  a = 10 c =12 
+	document.write("<br>16진수===>"+0x12); //18  --> 
+	document.write("</h4>");
+	// 실수형
+	alert('1'); /* alert가 먼저 나온다 다 해결해야 한꺼번에 표시  */
+	document.write("<BR><h3>[실수형]</h3>");
+	document.write("<h4>");
+	document.write("<hr>소수형 ===>"+3.14159);
+	document.write("<br>지수형 ===>"+0.123456e+3); /* 10의 3제곱  = 1000  */
+	document.write("</h4>");
+	// 논리형
+	document.write("<BR><hr><h3>[논리형]</h3>");
+	document.write("<h4>");
+	document.write("<hr>참 =>"+ true);
+	document.write("<br>거짓 =>" + false);
+	document.write("</h4>");
+	alert("2")
+	// 문자형
+	document.write("<h3><hr>[문자형]</h3><hr>");
+	document.write("<h4>");
+	document.write('작은 따옴표로 묶인 문자열'); /* 둘 다 가능 */
+	document.write("<br>");
+	document.write("큰 따옴표로 묶인 문자열"); /*  둘 다 가능 */
+	document.write("<br>");
+	document.write("</h4>");
+	// null 값
+	document.write("<h3><hr>[null 값]</h3><hr>");
+	document.write("<br><h4>"+ null);
+	document.write("</h4>");
+	document.write("</center>");
+</script>
+</head>
+<body>
+	<h1>Char</h1>
+</body>
+</html>

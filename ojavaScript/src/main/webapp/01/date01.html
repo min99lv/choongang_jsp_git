@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var date1 = new Date(); /* 현재일자기준 */
+	document.write(date1+"<p>");
+	var date2 = new Date("2024-06-19T13:30:00"); /* 일자시간기준 */
+	var date3 = new Date("2024-06-19"); /* 날짜만 주면 초기값 9시 세팅 */
+	var date4 = new Date("2024-06"); /* 월만 주면 초기값 월의 1일 9시 세팅  */
+	var date5 = new Date("2024"); /* 년도만 주면 초기값 년의 1월 1일 9시 세팅 */
+	document.write(date2+"<p>");
+	document.write(date3+"<p>");
+	document.write(date4+"<p>");
+	document.write(date5+"<p>");
+
+</script>
+</head>
+<body>
+	<h1>Date</h1>
+	<p>
+		자바스크립트에서 Date객체를 초기화 하는방법<br> 
+		협정 세계시(UTC)의 기준시간대 (Greenwich MeanTime)<br> 
+		new Date()<br> 
+		new Date("날짜를 나타내는 문자열")<br>
+		new Date(밀리초)<br> 
+		new Date(년, 월, 일, 시, 분, 초, 밀리초)<br>
+		</p>
+</body>
+</html>

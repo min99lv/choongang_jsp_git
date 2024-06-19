@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var varName = "varName1...";
+	let letName = "letName1...";
+	const constName = "constName1...";
+	kkName = "kkk..."; /* 지역변수 개념 , var선언한 것 = 전역변수 개념  */
+	
+	// var 와 let은 재할당 가능 / 문자열 -> 숫자 가능
+	varName = 100;
+	document.write(varName+"<br>"); // 100 
+	
+	letName = 300;
+	document.write(letName+"<br>") // 300
+	
+/* 	constName = 500; /* const 상수는 변수재선언이나 할당 불가능  */ 
+/* 	document.write(constName+"<br>");  */
+ 
+ 	// var는 재선언 가능, let 재선언 불가능
+ 	var varName = "varName2...";
+ 	document.write(varName+"<br>");
+ /* 	let letName = "letName" */
+ 
+</script>
+</head>
+<body>
+	<h1>Var let 01</h1>
+</body>
+</html>

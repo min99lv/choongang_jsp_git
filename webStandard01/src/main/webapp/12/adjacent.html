@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* h1 tag 바로 다음에 나오는 tag가 반드시 ul 일때만 */
+h1+ul { /* ul 바로 다음에 ul 을 의미  바로 다음이 아니면 의미가 없음*/
+	color: blue;
+	font-weight: bold;
+}
+
+h1+h2 { /* h1다음 첫번째 h2를 의미 한다 */
+	color: red;
+	background-color: gray;
+}
+</style>
+</head>
+<body>
+	<section>
+		<h1>예약 방법 및 요금</h1>
+		<h2>h1 다음 ---> h2 첫째</h2>
+		<h2>h1 다음 ---> h2 둘째</h2>
+		<h2>h1 다음 ---> h2 셋째</h2>
+		<ul>
+			<li>직접 통화</li>
+			<li>문자 남기기</li>
+		</ul>
+		<ul>
+			<li>1인 : 40,000원</li>
+			<li>2인 : 60,000원</li>
+			<li>3인 : 80,000원</li>
+			<li>4인 : 120,000원</li>
+		</ul>
+		<ul>
+			<li>1a : 40,000원</li>
+			<li>2a : 60,000원</li>
+			<li>3a : 80,000원</li>
+			<li>4a : 120,000원</li>
+		</ul>
+	</section>
+</body>
+</html>
