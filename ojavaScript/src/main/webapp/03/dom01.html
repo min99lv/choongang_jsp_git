@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 	// 해당 ID를 가지고 있는 첫번째 요소만 선태
+	 var setItemId = document.getElementById("even"); /* id 가 even 얘를 가져와서 태그를 정의*/
+	// 해당 name를 가지고 있는 요소 선택
+	/* 	setItemId.style.color = "orange"; */
+
+	/* 	var setPId = document.getElementById("change"); */
+	/* 	setPId.innerHTML = "이 문장 대체" */
+
+	/* 위에 로직이 안되는 이유 함수를 만들지 않고 캐스캐이딩으로 실행 dom이 완성되지 않은 상태로 가져와서 가져오지 못한 것...*/
+	
+	
+	function chgItem() {
+		// 해당 ID를 가지고 있는 첫번째 요소만 선택
+		var selItemId = document.getElementById("even");
+		// 해당 name를 가지고 있는 요소 선택
+		selItemId.style.color = "orange";
+	}
+	function chgText() {
+		// 해당 ID를 가지고 있는 첫번째 요소만 선택
+		var selPId = document.getElementById("changeText");
+		selPId.innerHTML = "changeText 문장 대체";
+	}
+</script>
+</head>
+<body>
+	<h1>dom01</h1>
+	<h4>id 이용선택</h4>
+	<ul>
+		<li>첫번째 Item</li>
+		<li id="even">두번째 Item</li>
+		<li>세번째 Item</li>
+		<li>네번째 Item</li>
+		<li>5번째 Item</li> 
+	</ul>
+	<p id="changeText">교환</p>
+	<button onclick="chgItem()">even</button><p>
+	<button onclick="chgText()">changeText</button>
+</body>
+</html>

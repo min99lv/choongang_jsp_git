@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 1. 객체 선언 
+	var dracura = {
+		name : '김준수',
+		age : 38,
+		addr : "드라큐라"
+	}
+	for ( var key in dracura) {
+		document.write("1."+dracura[key]+"<br>");
+	}
+	// 2. Append /* 선언을 한뒤 추후에 append 가능 = 프토퍼티 추가 */
+	dracura.phone = "01022223333";
+	document.write("<p>");
+	for ( var key in dracura) {
+		document.write("2."+dracura[key]+"<br>");
+	}
+	// 3. Delete /* 추후에 삭제 가능 */
+	delete(dracura.addr);
+	document.write("<p>");
+	for ( var key in dracura) {
+		document.write("3."+dracura[key]+"<br>");
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

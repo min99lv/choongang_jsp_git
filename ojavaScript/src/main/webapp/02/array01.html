@@ -3,8 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	var a = new Array(4); /* 그냥 형식적인 길이 .. 초기값 설정일뿐 길이는 가변적임 */
+	document.write("a.length1=" + a.length + "<br>");
+	a[0] = 12;
+	a[1] = 54;
+	a[2] = 2;
+	a[3] = 78;
+	document.write("a.length 2=" + a.length + "<br>");
+	document.write("<br>====전체조회1===" + "<br>");
+	for (var i = 0; i < a.length; i++) {
+		document.write("<br>a[" + i + "]=" + a[i]);
+	}
+	document.write("<br>====java와 다른점===" + "<br>");
+	a[4] = 8; /* 자바에서는 오류 자바스크립트에서는 배열의 길이..가 가변적  */
+	a[5] = 17;
+	a[6] = 60;
+	a[8] = 88;
+	document.write("<br>====전체조회2===" + "<br>");
+	document.write("a.length 3=" + a.length + "<br>");
+	for (var i = 0; i < a.length; i++) {
+		document.write("<br>a[" + i + "]=" + a[i]);
+	}
+</script>
 </head>
 <body>
-
+	<h1>Array01</h1>
 </body>
 </html>

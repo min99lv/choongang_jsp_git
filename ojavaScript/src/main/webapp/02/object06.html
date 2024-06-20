@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// index 0123
+	var arr = [ 1, true, "JavaScript", 'End' ];
+	document.write("arr.join()-->" + arr.join() + "<br>");/* 1,true,JavaScript,End */
+	document.write("arr.join(' + ')-->" + arr.join(' + ') + "<br>");/* 1 + true + JavaScript + End */
+	document.write("arr.join(' ')-->" + arr.join(' ') + "<br>");1 /* true JavaScript End */
+	document.write("arr.join('')-->" + arr.join('') + "<br>");/* 1trueJavaScriptEnd */
+
+	// 1부터 인덱스 2까지 
+	document.write("arr.slice(1,2)-->" + arr.slice(1, 2) + "<br>");/* true */
+	// 3미만
+	document.write("arr.slice(1,3)-->" + arr.slice(1, 3) + "<br>");/* true,JavaScript */
+	// start, end ---> end 없으면 끝까지 가라
+	document.write("arr.slice(1)-->" + arr.slice(1) + "<br>");/* true,JavaScript,End */
+
+	document.write("arr.toString()-->" + arr.toString() + "<br>");/* 1,true,JavaScript,End */
+</script>
+</head>
+<body>
+	<h1>object06</h1>
+</body>
+</html>
