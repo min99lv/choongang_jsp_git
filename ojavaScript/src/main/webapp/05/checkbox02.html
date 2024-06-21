@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function chk() {
+		var str = "좋아하는 영화는\n";
+		for (var i = 0; i < movie.length; i++) {
+			if (frm.movie[i].checked) {
+				str += frm.movie[i].value;
+			}
+		}
+		alert(str);
+	}
+	/* function chk() {
+		var str = "좋아하는 영화는\n";
+		for(var i = 0; i < frm.movie.length; i++){
+			if (frm.movie[i].checked) str += frm.movie[i].value+"\n"
+		}
+		alert(str);
+	} */
+</script>
+</head>
+<body>
+	<h2>좋아하는 영화를 선택하셈</h2>
+	<form action="" name="frm">
+		<!-- css 를 사용하고 싶으면 라벨태그 안써도 상관은 없다...  -->
+		리미트<input type="checkbox" name="movie" id="m1" value="리미트"> <label
+			for="m2">한산</label> <input type="checkbox" name="movie" id="m2"
+			value="한산"> <label for="m2">Hunt</label> <input
+			type="checkbox" name="movie  id=" m3" value="Hunt">
+		<p>
+			<input type="button" value="확인" onclick="chk()">
+	</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 제이쿼리 선언  다운로드 방식 -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+/*		단축하지 않은 코드
+	$(document).ready(function() {
+		$('h1').css('color', 'red');
+		$('p').css('color', 'green');
+	});
+*/	 	// 단축 코드 document).ready
+		$(function () {
+			$('*').css('color','red');
+			jQuery("p").css('color', 'green');
+			
+		});
+</script>
+</head>
+<body>
+	<h1>비가 오려나</h1>
+	<p>태풍아</p>
+</body>
+</html>

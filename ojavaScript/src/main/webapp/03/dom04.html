@@ -22,8 +22,8 @@
 		
 
 		function clickRemoveBtn() {
-			btn.addEventListener("mouseover", mouseoverBtn);
-			btn.addEventListener("mouseout", mouseoutBtn);
+			btn.removeEventListener("mouseover", mouseoverBtn);
+			btn.removeEventListener("mouseout", mouseoutBtn);
 			document.getElementById("text").innerHTML = "이벤트 리스너가 삭제되었어요!";
 		}
 

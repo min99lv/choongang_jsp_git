@@ -7,7 +7,11 @@
 /* {키 밸류 키 밸류 }= json =JavaScript Object Notation */
 	var wo = {"name":"이승은","addr":"항공"};
 	alert("wo->"+wo);
-	alert("JSON.stringify->"+JSON.stringify(wo)); /* 객체를 스트링으로 바꿔주는 메소드 */
+	alert("JSON.stringify->"+JSON.stringify(wo)); /* json객체를 스트링으로 바꿔주는 메소드 */
+	// parse 메소드는 string 객체를 json 객체로 변환
+	alert("JSON.parse(.stringify(wo)),name-->"+JSON.parse(JSON.stringify(wo)).name);
+	alert("wo.name->"+wo.name);
+	alert("wo.addr->"+wo.addr);
 	</script>
 </head>
 <body>
