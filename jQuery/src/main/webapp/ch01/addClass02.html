@@ -15,20 +15,14 @@
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript">
 	$(function () {
-/* 		<h1>0 태풍</h1>
-		<h1>1 흰남노</h1>
-		<h1>2 난마돌</h1>
-		<h1>3 메기</h1>
-		<h1>4 송다</h1>
-		<h1>5 무란</h1>
-		<h1>6 말라카스</h1>
-		<h1>7 므르복</h1>
-		<h1>8 메아리</h1> 배열로서 들어옴 */
+		/* 	html문에 있는 h1태그가 내부적으로 객체들의  배열로서 들어옴 */
+		/* 	index = 첫번째 h1태그-> 현재 인데스가 들어
+	 	 	item = 0 태풍 -> 현재 dom요소가 들어옴
+	 	 	this = 현재 반복중인 dom참조 */
 		$('h1').each(function (index, item){
-									$(this).addClass('highlight_'+index); 
-			
-								});
-	});
+									$(this).addClass('highlight_'+index);
+						});
+		});
 
 </script>
 
