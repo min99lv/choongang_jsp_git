@@ -10,21 +10,27 @@
 		// 4. addr -> 주소좀 넣어줄래, focus  -->
 <script type="text/javascript">
 	function chk() {
-		if (frm.name.value == 0) {
+		if (frm.name.value == " ") {
 			alert("이름을 입력해주세요");
 			frm.name.focus();
+			return;
 		}
-		if (frm.age.value == 0) {
+		if (!frm.age.value) {
 			alert("나이를 입력해주세요");
 			frm.age.focus();
+			return;
 		}
 		if (isNaN(frm.age.value)) {
-			alert("숫자를 입력해주세요");
+			alert("나이가 문자임");
+			frm.age.value = "";
 			frm.age.focus();
+			return;
 		}
-		if (frm.addr.value == 0) {
-			var noaddr = document.getElementById("주소 좀 넣어줄래");
+		var addr = document.getElementById("addr");
+		if (frm.value.length == 0) {
+			alert("주소 좀 넣어줄래");
 			frm.addr.focus();
+			return;
 		}
 	}
 </script>

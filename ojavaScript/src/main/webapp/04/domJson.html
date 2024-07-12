@@ -6,7 +6,13 @@
 <script type="text/javascript">
 /* {키 밸류 키 밸류 }= json =JavaScript Object Notation */
 	var wo = {"name":"이승은","addr":"항공"};
+	var woArr =  [
+        {"name":"김혁"  , "addr":"생물"},
+        {"name":"손정민" , "addr":"통신"},
+        {"name":"송혜선" , "addr":"화학"},
+        ] ;
 	alert("wo->"+wo);
+	alert(woArr.length);
 	alert("JSON.stringify->"+JSON.stringify(wo)); /* json객체를 스트링으로 바꿔주는 메소드 */
 	// parse 메소드는 string 객체를 json 객체로 변환
 	alert("JSON.parse(.stringify(wo)),name-->"+JSON.parse(JSON.stringify(wo)).name);

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function chk() {
+	if(!frm.num1.value){
+		alert("첫번째 수?");
+		frm.num1.focus();
+		return false;
+	}
+	if(isNaN(frm.num1.value)){
+		alert("숫자1에 문자를 입력해주세요");
+		frm.num1.focus();
+		frm.num1.value="";
+		return false;
+	}
+	if(!frm.num2.value){
+		alert("두번째 수 ?");
+		frm.num2.focus();
+		return false;
+	}
+	if(isNaN(frm.num2.value)){
+		alert("숫자2에 문자를 입력해주세요");
+		frm.num2.value="";
+		frm.num2.focus();
+		return false;
+	}
+	return true;
+	
+}
+
+</script>
+</head>
+<body>
+<!-- <form action="cal.jsp"  name="frm" onsubmit="return chk()"> -->
+<form action="cal2.jsp"  name="frm" onsubmit="return chk()">
+	첫번째 수 : <input type="text" name="num1"><p>
+	두번째 수 : <input type="text" name="num2"><p>
+	<input type="submit" value="확인"><p>
+</form>
+</body>
+</html>

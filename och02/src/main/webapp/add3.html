@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function chk() {
+		/*  value : 입력하는 값 */
+		if(!frm.num.value){
+			alert("숫자가 입력 안해?");
+			frm.num.focus();
+			return false;
+		}
+	if(isNaN(frm.num.value)){
+		alert("숫자가 뭔지 모르니 ? 헐");
+		frm.num.focus();
+		frm.num.value = ""; // 입력된 글자 지우기
+		return false;
+	}
+	return true;
+		
+	}
+</script>
+</head>
+<body>
+	<h1>숫자를 입력하세요</h1>				<!--  onsubmit : 내가 제출버튼을 눌렀을때 실행-->
+	<form action="Add3" name="frm"    method="get"
+	  onsubmit="return chk()"> <!--  기본이 get 방식 -->
+	<!-- action에 값으로 input태그를 다 데리고 이동  -->
+		숫자 : <input type="text" name="num">
+		문자 : <input type="text" name=han">
+		<p>
+			<input type="submit" value="확인">
+	</form>
+</body>
+</html>
