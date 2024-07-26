@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#menu1').click(function() { // 클릭하게 되면 ajax함수 실행
+			$.ajax({
+				url : 'menu.jsp',
+				dataType : 'html',
+				success : function(data) {
+					$('#msg1').html(data)
+				}
+			});
+		});
+	$('#menu2').click(function() {
+		$.ajax({
+			url : 'menu.jsp',
+			dataType : 'html',
+			// 성공하면 사용할 콜백 함수 -> javascript : readyState, State -> data: html태그 자체
+			success : function(data) { // data 이름은 바꿔도 된다 : 받는 객체 이름
+				$('#msg2').html($(data).find('li'));
+			}
+		});
+	});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a id="menu1">메뉴선택1</a><p>
+			<span id="msg1"></span>
+	</div>
+	<div>
+		<a id="menu2">메뉴선택2</a><p>
+			<span id="msg2"></span>
+	</div>
+	<p>
+</body>
+</html>

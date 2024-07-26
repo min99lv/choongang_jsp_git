@@ -12,5 +12,8 @@
 	코드 : <jsp:getProperty property="code" name="pt" /> <p> <!--프로퍼티 :상세 어트리뷰트 , name = 객체  -->
 	이름 : <jsp:getProperty property="name" name="pt" />  <p>
 	가격 : <jsp:getProperty property="price" name="pt" />  <p>
+<%-- 	색깔 : <jsp:getProperty property="color" name="pt" />  <p>
+	크기 : <jsp:getProperty property="size" name="pt" />  <p> --%>
+
 </body>
 </html>

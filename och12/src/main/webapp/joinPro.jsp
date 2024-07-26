@@ -1,0 +1,50 @@
+<%@page import="och12.MemberDao"%>
+<%@page import="och12.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" errorPage="error.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%-- 
+<%
+	**** bean을 사용하지 않은 방법
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
+	Member member2 = new Member();
+	member2.setId(id);
+	member2.setId(name);
+%> 
+--%>
+
+
+<!-- Bean 설정
+bean에 모든 parameter setting -->
+<!-- java : Member member = new Member(); -->
+<jsp:useBean id="member" class="och12.Member" ></jsp:useBean>
+<jsp:setProperty property="*" name="member"/>
+
+<%
+	MemberDao md = MemberDao.getInstance();
+	int result = md.insert(member);
+	if(result > 0){
+%>
+	<script type="text/javascript">
+		alert("회원가입 축하 ! 이제 고생 좀 해");
+		location.href="loginForm.jsp";
+	</script>
+<%
+	} else {
+%>
+	<script type="text/javascript">
+		alert("헐 실패야 똑바로해 !");
+		location.href="joinForm.jsp";
+	</script>
+	<% } %>
+
+</body>
+</html>

@@ -8,14 +8,10 @@
 </head>
 <body>
 <%
-		String[] winner = {"홍길동", "김길동", "고길동"};
-
-
-		request.setAttribute("winner", winner);
-		RequestDispatcher rd = request.getRequestDispatcher("winnerResult.jsp");
-		rd.forward(request, response);
+	String hiredate = request.getParameter("hiredate");
 	
 %>
-
+Expression 입사일1 : <%= hiredate %><p>
+EL 입사일2 : ${param.hiredate  }
 </body>
 </html>

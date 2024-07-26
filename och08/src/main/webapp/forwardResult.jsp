@@ -8,14 +8,11 @@
 </head>
 <body>
 <%
-		String[] winner = {"홍길동", "김길동", "고길동"};
-
-
-		request.setAttribute("winner", winner);
-		RequestDispatcher rd = request.getRequestDispatcher("winnerResult.jsp");
-		rd.forward(request, response);
+	String name = request.getParameter("name");
+	String addr = request.getParameter("addr");
 	
 %>
+<%=name %>님 <%=addr %>에 사시는 군요 <p>
 
 </body>
 </html>

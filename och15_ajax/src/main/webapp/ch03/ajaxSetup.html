@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#sub').click(function() {
+			 // = requestDispachar이랑 비슷하게 사용됨
+			 // text로 받는다
+			 // 여기에 뿌림
+			$.ajaxSetup({
+				type : 'GET',
+				url : 'checkIn.jsp',
+				dataType : 'text', 
+				success : function(data1) {
+					$('#msg').html(data1); 
+
+				}
+			});
+			// 첫번째 방법 -> 파라메터가 많으면 하나하나 받기 힘들어서
+			// var name = $('#name').val();
+			// var pass = $('#pass').val();
+			// var sendData = 'name=' + name + '&pass=' + pass;
+
+			// 두번째 방법  -> 데이터를 직렬화 시켜서 데려옴
+			var sendData = $('form').serialize();
+			
+			alert('sendData->' + sendData);
+			$.ajax({ // 데이터를 나중에 선언
+				data : sendData
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+<form>
+	이름 : <input type = "text" name="name" id="name"><p>
+	암호 : <input type = "password" name="pass" id="pass"><p>
+	<input type="button"  id="sub" value="확인">
+</form>
+	<div id = "msg"></div>
+</body>
+</html>

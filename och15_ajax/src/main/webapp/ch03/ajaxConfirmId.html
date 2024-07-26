@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+$(function () {
+	$('#chk').click(function () {
+		var id = $('#id').val(); // #id => id 의 value값
+		var sendData = 'id=' +id 
+		alert('sendData=>'+sendData);
+		$.ajax({
+			url : 'confirmId.jsp',
+			data : sendData, // 서버쪽 = 파라메터
+			dataType : 'text', // 실행 한 후 결과값
+			success : function (data1) {
+				$('#msg').html(data1); // msg에 html형태로 집어넣겠다
+			}
+		});
+	});
+});
+
+
+</script>
+</head>
+<body>
+<h1>회원가입 - Model1</h1>
+<form action="confirmId.jsp">
+ 아이디 : <input type=" text" name="id" id="id">
+ <input type="button" value="중복체크" id="chk">
+<span id="msg"></span><p>
+암호 : <input type="password" name="pass" id="pass"><p>
+이름 : <input type="text" name="name" id="name"><p>
+<input type="submit" value="확인">
+</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/httpRequest.js"></script>
+<script type="text/javascript">
+	function chk() {
+		// sendRequest(url(server pgm), params, collback, method)
+		sendRequest("temperate.jsp", null, tempShow, "get");
+	}
+	function tempShow() {
+		var temp = document.getElementById("temp");
+		var max = document.getElementById("max");
+		// alert('temp ->' + tmep)
+		// alert('max->'+ max)
+		if (httpRequest.readyState == 4)
+			if (httpRequest.status == 200) { // 서버에 문제가 없으면 밑에 로직 실행
+				// 						9.8 ,30.2 ,24.7 ,23.7 ,23.1 => String
+				var value = httpRequest.responseText;
+				// 온도를 다 집어넣음
+				temp.innerHTML = value;
+				// 결과값을 tp 배열로 전환 -> ,로 나눠서 배열로 저장함 String 배열선언은 해주지 않아도 된다. 
+				var tp = value.split(",");
+				// alert('tp[0]->'+tp[0]); 
+				// tp배열의 길이인 배열을 생성함
+				var arrTemperate = new Array(tp.length);
+				// tp배열을 arrTemperate(Float)로 전환
+				for (var i = 0; i < tp.length; i++) {
+														// 플롯으로 파씽함 
+					arrTemperate[i] = parseFloat(tp[i]);
+				}
+				// alert('arr.Temperate[0]->' +arr.Temprate[0])
+				var maxTemperate = 0;
+				// 실제 maxTemperate 구함
+				for (var i = 0; i < arrTemperate.length; i++) {
+					if (maxTemperate < arrTemperate[i])
+						maxTemperate = arrTemperate[i];
+				}
+				max.innerHTML = maxTemperate;
+			}
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="온도보기" onclick="chk()">
+	<p>온도<div id="temp"></div>
+	<p>최고온도<div id="max"></div>
+</body>
+</html>
