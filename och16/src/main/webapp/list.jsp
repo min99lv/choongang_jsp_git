@@ -13,6 +13,29 @@ table {
 	width: 100%
 }
 </style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+ function getDeptName(p_num) {
+ 	alert("getDeptName 1");
+ 	alert("getDeptName v_num--->>>" + p_num); // num 출력 이미지에 마우스를 가져다대면 실행
+ 
+ 	$.ajax({
+ 		url : "ajaxGetDeptName.do",
+ 		data : {num : p_num},
+ 		dataType : 'text',
+ 		success : function(writer) {
+ 			alert(".ajax Data : "+ writer);
+ 			/* input tag --> value로 들어가기 때문에 .val*/ 
+ 			$('#writerName').val(writer);
+ 			/* span Tag value라는 속성이 없기때문에 .html*/
+ 			$('#msg').html(writer);
+ 			alert("writerName 2");
+			
+		}
+ 	});
+ 	alert("getDateName 3");
+ }
+</script>
 </head>
 <body>
 	<h1>게시판</h1>
@@ -43,6 +66,7 @@ table {
 					<td class="left" width=200>
 						<!-- 조회수가 20명이 넘으면 인기 게시물 --> <c:if
 							test="${board.readcount > 20 }">
+							<!-- ajax를 위한 코드 : onmouseover = hover -->
 							<img src="images/hot.gif" onmouseover="getDeptName(${board.num})">
 						</c:if> <!-- re_level : 0 원글 1 댓글 2 대댓글 --> <c:if
 							test="${board.re_level > 0 }">
@@ -86,8 +110,11 @@ table {
 			<a href='list.do?pageNum=${startPage+blockSize}'>[다음]</a>
 		</c:if>
 	</div>
-
-
-
+	<!--  ajax -->
+	AJax writerName 결과 :
+	<input type="text" id="writerName" readonly="readonly">
+	<p>
+		Message : <span id="msg"></span>
+	<p>
 </body>
 </html>

@@ -232,21 +232,23 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		// 신규글 pk 로직
+		// 신규글 + 댓글 pk 로직
 		String sql1 = "select nvl(max(num),0) from board";
 		// 신규글 공용 로직
 		String sql3 = "insert into board values(?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		// 신규글 + 댓글 공용 로직 = 홍해의 기적
 		String sql2 = "update board set re_step = re_step+1 where ref=? and re_step > ?";
-
+		// ref는 같고 re_step > pstmt.setInt(1, board.getRef())-->0;
+		// 자신보다 큰애들의 re_step값을 하나씩 증가시킨다
 		try {
 			// 시점 : sql1
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
 			rs = pstmt.executeQuery();
 			rs.next();
-			// key인 num이 1씩 증가, mysql auto_increment 또는 oracle sequence
+			// key인 num이 1씩 증가, mysql-auto_increment 또는 oracle-sequence
 			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?..);
+			// 시퀀스장점 : 중복처리를 알아서 해준다
 			int number = rs.getInt(1) + 1;
 			rs.close();
 			pstmt.close();
@@ -270,7 +272,7 @@ public class BoardDao {
 			System.out.println("BoardDao insert num" + num);
 			System.out.println("BoardDao insert number" + number);
 
-			// 시점 : sql3
+			// 시점 : sql3 --> 신규글
 			if (num == 0) {
 				board.setRef(number);// number
 			}
@@ -287,6 +289,122 @@ public class BoardDao {
 			pstmt.setInt(9, board.getRe_step());
 			pstmt.setInt(10, board.getRe_level());
 			pstmt.setString(11, board.getIp());
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		return result;
+	}
+
+	public int delete(int num, String passwd) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from board where num=? and passwd=?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, num);
+			pstmt.setString(2, passwd);
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		return result;
+	}
+
+	// Subquery 방식
+	public int insert3(Board board) throws SQLException {
+		int num = board.getNum(); // num값을 가져온다
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		// 신규글 + 댓글 pk 로직
+		// String sql1 = "select nvl(max(num),0) from board";
+		// 신규글 공용 로직
+		String sql3 = "insert into board values((select nvl(max(num),0) from board+1),?,?,?,?,?,?,"
+				+ "(select nvl(max(num),0),?,?,?,sysdate)";
+		// 신규글 + 댓글 공용 로직 = 홍해의 기적
+		String sql2 = "update board set re_step = re_step+1 where ref=? and re_step > ?";
+		// ref는 같고 re_step > pstmt.setInt(1, board.getRef())-->0;
+		// 자신보다 큰애들의 re_step값을 하나씩 증가시킨다
+		try {
+			// 시점 : sql1
+//			conn = getConnection();
+//			pstmt = conn.prepareStatement(sql1);
+//			rs = pstmt.executeQuery();
+//			rs.next();
+//			// key인 num이 1씩 증가, mysql-auto_increment 또는 oracle-sequence
+//			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?..);
+//			// 시퀀스장점 : 중복처리를 알아서 해준다
+//			int number = rs.getInt(1) + 1;
+//			rs.close();
+//			pstmt.close();
+
+			// 시점 : sql2 --> 댓글
+			// 신규글의 경우 num = 0 이므로 밑에 로직을 타지 않음
+			if (num != 0) {
+				System.out.println("BoardDao insert 댓글 sql2->" + sql2);
+				System.out.println("BoardDao insert 댓글 board.getRef()->" + board.getRef());
+				System.out.println("BoardDao insert 댓글 board.getRe_step->" + board.getRe_step());
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, board.getRef());
+				pstmt.setInt(2, board.getRe_step());
+				pstmt.executeUpdate();
+				pstmt.close();
+
+				// 댓글 관련 정보
+				board.setRe_step(board.getRe_step() + 1);
+				board.setRe_level(board.getRe_level() + 1);
+			}
+			System.out.println("BoardDao insert num" + num);
+			// System.out.println("BoardDao insert number" + number);
+
+			// 시점 : sql3 --> 신규글
+			// if (num == 0) {
+			// board.setRef(number);// number
+			// }
+			pstmt = conn.prepareStatement(sql3);
+			// pstmt.setInt(1, number);
+			pstmt.setString(1, board.getWriter());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getContent());
+			pstmt.setString(4, board.getEmail());
+			pstmt.setInt(5, board.getReadcount());
+			pstmt.setString(6, board.getPasswd());
+			// 신규글인 경우 re_level, re_step = 0
+			// pstmt.setInt(7, board.getRef());
+			pstmt.setInt(7, board.getRe_step());
+			pstmt.setInt(8, board.getRe_level());
+			pstmt.setString(9, board.getIp());
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {

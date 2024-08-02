@@ -12,6 +12,7 @@ import service.CommandProcess;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -158,10 +159,23 @@ public class Controller extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
-		// controller -> view로 이동하는 경로
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
 
+		// url에 "Ajax String"을 포함하고 있으면
+		if (command.contains("ajaxGet")) {
+			System.out.println("ajaxGet String" + command);
+			String writer = (String) request.getAttribute("writer");
+			PrintWriter pw = response.getWriter();
+			// 나를 호출한 데이터의 화면에 뿌려줌
+			pw.write(writer);
+			pw.flush();
+
+		// 일반적인 경우
+		} else {
+
+			// controller -> view로 이동하는 경로
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+		}
 	}
 
 }
